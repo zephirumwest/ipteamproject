@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './WeatherInfo.css'; // CSS 파일 import
 
-const WEATHER_API_KEY = 'YOUR_API_KEY_HERE'; // <-- OpenWeatherMap API 키를 입력하세요
+const WEATHER_API_KEY = '1fbcaab925650378bf46cf43aedf6fc8'; // <-- OpenWeatherMap API 키를 입력하세요
 
 export default function WeatherInfo() {
   // ... (useState, useEffect 로직은 동일)
