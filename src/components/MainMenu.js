@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 
 const menuItems = [
   { label: '날씨 정보', icon: '☀️', path: '/weather' },
-  { label: '무더위 쉼터 찾기', icon: '🏠', path: '/shelters' },
-  { label: '약국 / 병원 찾기', icon: '💊', path: '/hospitals' },
+  { label: '주변 위치 찾기', icon: '📍', path: '/locations' },
+  { label: '건강 설문', icon: '📋', path: '/survey' },
   { label: '치매 예방 퀴즈', icon: '🧠', path: '/quiz' },
 ];
 
