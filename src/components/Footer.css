@@ -1,0 +1,10 @@
+
+.footer-container {
+  background-color: #f3f4f6; /* bg-gray-100 */
+  text-align: center;
+  font-size: 1rem; /* text-base (Tailwind default) */
+  line-height: 1.5rem;
+  padding: 1.25rem; /* p-5 */
+  margin-top: auto;
+  border-top: 1px solid #e5e7eb; /* border-t (and default border color) */
+}

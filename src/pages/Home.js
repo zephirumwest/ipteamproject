@@ -2,12 +2,13 @@ import React from 'react';
 import Header from '../components/Header';
 import MainMenu from '../components/MainMenu';
 import Footer from '../components/Footer';
+import './Home.css'; // CSS 파일 import
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen bg-blue-50">
+    <div className="home-container">
       <Header />
-      <main className="flex-grow">
+      <main className="home-main-content">
         <MainMenu />
       </main>
       <Footer />

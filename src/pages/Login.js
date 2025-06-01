@@ -1,6 +1,6 @@
-// src/pages/Login.js
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import './Login.css'; // CSS 파일 import
 
 export default function Login() {
   const navigate = useNavigate();
@@ -17,33 +17,33 @@ export default function Login() {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen bg-blue-50">
-      <form onSubmit={handleSubmit} className="bg-white p-10 rounded-xl shadow-md w-96">
-        <h2 className="text-2xl font-bold text-center mb-6">로그인</h2>
+    <div className="login-page-container">
+      <form onSubmit={handleSubmit} className="login-form">
+        <h2 className="login-form-title">로그인</h2>
 
-        <label className="block mb-2 font-semibold">이메일</label>
+        <label className="login-form-label">이메일</label>
         <input
           type="email"
           name="email"
           value={form.email}
           onChange={handleChange}
-          className="w-full p-3 mb-4 border rounded"
+          className="login-form-input"
           required
         />
 
-        <label className="block mb-2 font-semibold">비밀번호</label>
+        <label className="login-form-label">비밀번호</label>
         <input
           type="password"
           name="password"
           value={form.password}
           onChange={handleChange}
-          className="w-full p-3 mb-6 border rounded"
+          className="login-form-input login-form-input-password" // 추가 클래스
           required
         />
 
         <button
           type="submit"
-          className="w-full bg-blue-600 text-white text-lg py-3 rounded hover:bg-blue-700"
+          className="login-form-submit-button"
         >
           로그인
         </button>

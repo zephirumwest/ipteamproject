@@ -1,0 +1,27 @@
+.header-container {
+  background-color: #2563eb; /* bg-blue-700 */
+  color: white;
+  padding: 1.5rem 1rem; /* py-6 px-4 */
+  text-align: center;
+}
+
+.header-title {
+  font-size: 1.875rem; /* text-3xl */
+  line-height: 2.25rem;
+  font-weight: 700; /* font-bold */
+}
+
+.header-nav {
+  margin-top: 0.5rem; /* mt-2 */
+  font-size: 1.125rem; /* text-lg */
+  line-height: 1.75rem;
+}
+
+.header-nav-link {
+  text-decoration: underline;
+  margin-right: 1rem; /* mr-4 (for the first link) */
+}
+
+.header-nav-link:hover {
+  color: #fefcbf; /* hover:text-yellow-200 */
+}

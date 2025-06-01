@@ -1,9 +1,10 @@
-// src/pages/WeatherInfo.js
 import React, { useEffect, useState } from 'react';
+import './WeatherInfo.css'; // CSS 파일 import
 
 const WEATHER_API_KEY = 'YOUR_API_KEY_HERE'; // <-- OpenWeatherMap API 키를 입력하세요
 
 export default function WeatherInfo() {
+  // ... (useState, useEffect 로직은 동일)
   const [location, setLocation] = useState(null);
   const [weather, setWeather] = useState(null);
   const [error, setError] = useState(null);
@@ -25,17 +26,29 @@ export default function WeatherInfo() {
 
   // 날씨 API 호출
   useEffect(() => {
-    if (!location) return;
+    if (!location || WEATHER_API_KEY === 'YOUR_API_KEY_HERE') {
+        if(WEATHER_API_KEY === 'YOUR_API_KEY_HERE' && location) {
+            setError('OpenWeatherMap API 키를 입력해주세요.');
+        }
+        return;
+    }
+
 
     const fetchWeather = async () => {
       try {
         const response = await fetch(
           `https://api.openweathermap.org/data/2.5/weather?lat=${location.lat}&lon=${location.lon}&appid=${WEATHER_API_KEY}&units=metric&lang=kr`
         );
+        if (!response.ok) {
+            const errorData = await response.json();
+            throw new Error(errorData.message || '날씨 정보를 가져오는데 실패했습니다.');
+        }
         const data = await response.json();
         setWeather(data);
+        setError(null); // 성공 시 에러 메시지 초기화
       } catch (e) {
-        setError('날씨 정보를 가져오는 중 오류 발생');
+        setError(e.message || '날씨 정보를 가져오는 중 오류 발생');
+        setWeather(null); // 오류 발생 시 날씨 정보 초기화
       }
     };
 
@@ -43,27 +56,31 @@ export default function WeatherInfo() {
   }, [location]);
 
   const renderMessage = (temp) => {
+    if (temp === undefined || temp === null) return '날씨 정보를 분석 중입니다...';
     if (temp >= 30) return '🔥 매우 더우니 실내에서 휴식을 취하세요!';
     if (temp >= 20) return '🌤️ 적당한 날씨입니다. 외출 가능해요!';
     if (temp >= 10) return '🧥 쌀쌀하니 겉옷 챙기세요!';
     return '❄️ 매우 추우니 외출을 자제하세요!';
   };
 
+
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-blue-50 p-6">
-      <div className="bg-white shadow-md p-10 rounded-xl w-full max-w-lg text-center">
-        <h2 className="text-2xl font-bold mb-4">현재 날씨 정보</h2>
+    <div className="weather-page-container">
+      <div className="weather-card">
+        <h2 className="weather-card-title">현재 날씨 정보</h2>
 
-        {error && <p className="text-red-600">{error}</p>}
+        {error && <p className="weather-error-message">{error}</p>}
 
-        {!location && !error && <p>위치 정보를 불러오는 중...</p>}
+        {!location && !error && <p className="weather-loading-message">위치 정보를 불러오는 중...</p>}
+        {location && !weather && !error && <p className="weather-loading-message">날씨 정보를 불러오는 중...</p>}
 
-        {weather && (
+
+        {weather && weather.main && weather.weather && (
           <>
-            <p className="text-lg">🌍 {weather.name}</p>
-            <p className="text-xl mt-2">🌡️ 기온: {weather.main.temp}°C</p>
-            <p className="text-lg">☁️ 상태: {weather.weather[0].description}</p>
-            <p className="text-lg mt-4 font-semibold">{renderMessage(weather.main.temp)}</p>
+            <p className="weather-location-name">🌍 {weather.name}</p>
+            <p className="weather-temperature">🌡️ 기온: {weather.main.temp}°C</p>
+            <p className="weather-condition">☁️ 상태: {weather.weather[0].description}</p>
+            <p className="weather-advice">{renderMessage(weather.main.temp)}</p>
           </>
         )}
       </div>

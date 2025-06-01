@@ -1,0 +1,19 @@
+.locations-container {
+  padding: 1.5rem; /* p-6 */
+  text-align: center;
+}
+
+.locations-title {
+  font-size: 1.5rem; /* text-2xl */
+  line-height: 2rem;
+  font-weight: 700; /* font-bold */
+  margin-bottom: 1rem; /* mb-4 */
+}
+
+.locations-description {
+  margin-bottom: 0.75rem; /* mb-3 */
+}
+
+.locations-construction-notice {
+  /* 🚧 이모티콘 자체 스타일 */
+}

@@ -1,0 +1,54 @@
+.weather-page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #eff6ff; /* bg-blue-50 */
+  padding: 1.5rem; /* p-6 */
+}
+
+.weather-card {
+  background-color: white;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06); /* shadow-md */
+  padding: 2.5rem; /* p-10 */
+  border-radius: 0.75rem; /* rounded-xl */
+  width: 100%;
+  max-width: 32rem; /* max-w-lg (approx) */
+  text-align: center;
+}
+
+.weather-card-title {
+  font-size: 1.5rem; /* text-2xl */
+  line-height: 2rem;
+  font-weight: 700; /* font-bold */
+  margin-bottom: 1rem; /* mb-4 */
+}
+
+.weather-error-message {
+  color: #dc2626; /* text-red-600 */
+}
+
+
+.weather-location-name {
+  font-size: 1.125rem; /* text-lg */
+  line-height: 1.75rem;
+}
+
+.weather-temperature {
+  font-size: 1.25rem; /* text-xl */
+  line-height: 1.75rem;
+  margin-top: 0.5rem; /* mt-2 */
+}
+
+.weather-condition {
+  font-size: 1.125rem; /* text-lg */
+  line-height: 1.75rem;
+}
+
+.weather-advice {
+  font-size: 1.125rem; /* text-lg */
+  line-height: 1.75rem;
+  margin-top: 1rem; /* mt-4 */
+  font-weight: 600; /* font-semibold */
+}

@@ -1,27 +1,32 @@
-// src/components/MainMenu.js
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './MainMenu.css'; // CSS 파일 import
 
 const menuItems = [
-  { label: '날씨 정보', icon: '☀️', path: '/weather' },
-  { label: '주변 위치 찾기', icon: '📍', path: '/locations' },
-  { label: '건강 설문', icon: '📋', path: '/survey' },
-  { label: '치매 예방 퀴즈', icon: '🧠', path: '/quiz' },
+  { label: '날씨 정보', path: '/weather', icon: '☀️' },
+  { label: '주변 위치 찾기', path: '/locations', icon: '🏥' },
+  { label: '건강 설문', path: '/survey', icon: '📋' },
+  { label: '치매 예방 퀴즈', path: '/quiz', icon: '🧠' },
 ];
 
 export default function MainMenu() {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 p-6 max-w-3xl mx-auto">
-      {menuItems.map((item, idx) => (
-        <Link to={item.path} key={idx}>
-          <button
-            className="bg-white shadow-lg rounded-2xl p-8 text-center hover:bg-blue-100 transition text-xl font-semibold border border-gray-300 w-full"
-          >
-            <div className="text-6xl mb-4">{item.icon}</div>
-            {item.label}
-          </button>
-        </Link>
-      ))}
+    <div className="main-menu-container">
+      {/* 상단 제목 - Home.js의 Header와 중복될 수 있으므로 Home.js에서만 사용하거나 여기서 제거 고려 */}
+      {/* <div className="main-menu-title-bar">
+        실버 건강 지원 플랫폼
+      </div> */}
+
+      <div className="main-menu-grid">
+        {menuItems.map((item, idx) => (
+          <Link to={item.path} key={idx} className="main-menu-item-link">
+            <div className="main-menu-item">
+              <div className="main-menu-item-icon">{item.icon}</div>
+              <div className="main-menu-item-label">{item.label}</div>
+            </div>
+          </Link>
+        ))}
+      </div>
     </div>
   );
 }

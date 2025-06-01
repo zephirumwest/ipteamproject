@@ -1,7 +1,8 @@
-// src/pages/Quiz.js
 import React, { useState } from 'react';
+import './Quiz.css'; // CSS 파일 import
 
 const questions = [
+  // ... (questions 배열은 동일)
   {
     question: '다음 중 치매 예방에 좋은 활동은?',
     options: ['혼자 있기', '규칙적인 운동', '불규칙한 수면', '과음'],
@@ -37,18 +38,18 @@ export default function Quiz() {
   };
 
   return (
-    <div className="p-6 max-w-xl mx-auto text-center">
-      <h2 className="text-2xl font-bold mb-6">치매 예방 퀴즈</h2>
+    <div className="quiz-container">
+      <h2 className="quiz-title">치매 예방 퀴즈</h2>
 
       {!showResult ? (
         <>
-          <p className="text-xl mb-4">{questions[current].question}</p>
-          <div className="grid grid-cols-1 gap-3">
+          <p className="quiz-question-text">{questions[current].question}</p>
+          <div className="quiz-options-grid">
             {questions[current].options.map((option, idx) => (
               <button
                 key={idx}
                 onClick={() => handleAnswer(idx)}
-                className="bg-white border rounded p-4 hover:bg-blue-100 text-lg"
+                className="quiz-option-button"
               >
                 {option}
               </button>
@@ -57,9 +58,9 @@ export default function Quiz() {
         </>
       ) : (
         <div>
-          <p className="text-xl mb-4">🎉 퀴즈 완료!</p>
-          <p className="text-lg">총 점수: {score} / {questions.length}</p>
-          <p className="mt-2 text-green-600">
+          <p className="quiz-result-text">🎉 퀴즈 완료!</p>
+          <p className="quiz-score-text">총 점수: {score} / {questions.length}</p>
+          <p className="quiz-feedback-text">
             {score === 3 ? '훌륭합니다! 건강한 생활을 유지하세요!' :
              score === 2 ? '좋아요! 조금만 더 주의하면 완벽해요!' :
              '꾸준한 학습이 필요해요. 걱정 말고 천천히 해봐요!'}

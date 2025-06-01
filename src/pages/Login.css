@@ -1,0 +1,58 @@
+.login-page-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #eff6ff; /* bg-blue-50 */
+}
+
+.login-form {
+  background-color: white;
+  padding: 2.5rem; /* p-10 */
+  border-radius: 0.75rem; /* rounded-xl */
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06); /* shadow-md */
+  width: 24rem; /* w-96 */
+}
+
+.login-form-title {
+  font-size: 1.5rem; /* text-2xl */
+  line-height: 2rem;
+  font-weight: 700; /* font-bold */
+  text-align: center;
+  margin-bottom: 1.5rem; /* mb-6 */
+}
+
+.login-form-label {
+  display: block;
+  margin-bottom: 0.5rem; /* mb-2 */
+  font-weight: 600; /* font-semibold */
+}
+
+.login-form-input {
+  width: 100%;
+  padding: 0.75rem; /* p-3 */
+  border: 1px solid #d1d5db; /* border (and default color) */
+  border-radius: 0.25rem; /* rounded (Tailwind default for inputs) */
+  margin-bottom: 1rem; /* mb-4 or mb-6 */
+}
+
+.login-form-input-password { /* Specific margin for password input if different */
+  margin-bottom: 1.5rem; /* mb-6 */
+}
+
+
+.login-form-submit-button {
+  width: 100%;
+  background-color: #2563eb; /* bg-blue-600 */
+  color: white;
+  font-size: 1.125rem; /* text-lg */
+  line-height: 1.75rem;
+  padding-top: 0.75rem; /* py-3 */
+  padding-bottom: 0.75rem;
+  border-radius: 0.25rem; /* rounded */
+  transition: background-color 0.15s ease-in-out;
+}
+
+.login-form-submit-button:hover {
+  background-color: #1d4ed8; /* hover:bg-blue-700 */
+}

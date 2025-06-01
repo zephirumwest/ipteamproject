@@ -1,6 +1,6 @@
-// src/pages/Signup.js
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import './Signup.css'; // CSS 파일 import
 
 export default function Signup() {
   const navigate = useNavigate();
@@ -17,43 +17,43 @@ export default function Signup() {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen bg-blue-50">
-      <form onSubmit={handleSubmit} className="bg-white p-10 rounded-xl shadow-md w-96">
-        <h2 className="text-2xl font-bold text-center mb-6">회원가입</h2>
+    <div className="signup-page-container">
+      <form onSubmit={handleSubmit} className="signup-form">
+        <h2 className="signup-form-title">회원가입</h2>
 
-        <label className="block mb-2 font-semibold">이름</label>
+        <label className="signup-form-label">이름</label>
         <input
           type="text"
           name="name"
           value={form.name}
           onChange={handleChange}
-          className="w-full p-3 mb-4 border rounded"
+          className="signup-form-input"
           required
         />
 
-        <label className="block mb-2 font-semibold">이메일</label>
+        <label className="signup-form-label">이메일</label>
         <input
           type="email"
           name="email"
           value={form.email}
           onChange={handleChange}
-          className="w-full p-3 mb-4 border rounded"
+          className="signup-form-input"
           required
         />
 
-        <label className="block mb-2 font-semibold">비밀번호</label>
+        <label className="signup-form-label">비밀번호</label>
         <input
           type="password"
           name="password"
           value={form.password}
           onChange={handleChange}
-          className="w-full p-3 mb-6 border rounded"
+          className="signup-form-input signup-form-input-password"
           required
         />
 
         <button
           type="submit"
-          className="w-full bg-blue-600 text-white text-lg py-3 rounded hover:bg-blue-700"
+          className="signup-form-submit-button"
         >
           가입하기
         </button>
