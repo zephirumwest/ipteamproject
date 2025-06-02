@@ -13,10 +13,27 @@
   margin-bottom: 1.5rem; /* mb-6 */
 }
 
+.quiz-question-block {
+  opacity: 0;
+  transform: translateX(30px);
+  animation: slideFadeIn 0.4s ease forwards;
+}
+
 .quiz-question-text {
   font-size: 1.25rem; /* text-xl */
   line-height: 1.75rem;
   margin-bottom: 1rem; /* mb-4 */
+}
+
+@keyframes slideFadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 .quiz-options-grid {
@@ -40,6 +57,12 @@
   background-color: #dbeafe; /* hover:bg-blue-100 */
 }
 
+.quiz-option-button.selected {
+  background-color: #2563eb; /* bg-blue-600 */
+  color: white;
+  font-weight: 700; /* font-bold */
+}
+
 .quiz-result-text {
   font-size: 1.25rem; /* text-xl */
   line-height: 1.75rem;
@@ -54,4 +77,73 @@
 .quiz-feedback-text {
   margin-top: 0.5rem; /* mt-2 */
   color: #16a34a; /* text-green-600 */
+}
+
+.quiz-submit-button {
+  margin-top: 1.5rem; /* mt-6 */
+  margin-left: 0.5rem; /* ml-2 */
+  margin-right: 0.5rem; /* ml-2 */
+  background-color: #2563eb; /* bg-blue-600 */
+  color: white;
+  padding: 0.75rem 1.5rem; /* px-6 py-3 */
+  border-radius: 0.25rem; /* rounded */
+  transition: background-color 0.15s ease-in-out;
+  cursor: pointer;
+}
+
+.quiz-submit-button:hover {
+  background-color: #1d4ed8; /* hover:bg-blue-700 */
+}
+
+.quiz-submit-button:disabled {
+  background-color: #9ca3af; /* A generic disabled gray */
+  cursor: not-allowed;
+}
+
+.quiz-navigation-button {
+  margin-top: 1.5rem; /* mt-6 */
+  margin-left: 0.5rem; /* ml-2 */
+  background-color: #9ca3af; /* bg-blue-600 */
+  color: white;
+  padding: 0.75rem 1.5rem; /* px-6 py-3 */
+  border-radius: 0.25rem; /* rounded */
+  cursor: pointer;
+}
+
+.quiz-progress-bar {
+  width: 100%;
+  height: 10px;
+  background-color: #e0e0e0;
+  margin-top: 20px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.quiz-progress-fill {
+  height: 100%;
+  background-color:#2563eb; /* bg-blue-600 */
+  transition: width 0.3s ease;
+}
+
+.quiz-progress-text {
+  margin-top: 5px;
+  font-size: 14px;
+  color: #555;
+  font-weight: 500;
+}
+
+.survey-hospital-button {
+  margin-top: 12px;
+  padding: 10px 18px;
+  background-color: #c0392b; /* 붉은 경고 색 */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.survey-hospital-button:hover {
+  background-color: #a93226; /* hover 시 어두운 빨강 */
 }

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './WeatherInfo.css'; // CSS 파일 import
+import { useNavigate } from 'react-router-dom';
 
 const WEATHER_API_KEY = '1fbcaab925650378bf46cf43aedf6fc8'; // <-- OpenWeatherMap API 키를 입력하세요
 
@@ -8,6 +9,8 @@ export default function WeatherInfo() {
   const [location, setLocation] = useState(null);
   const [weather, setWeather] = useState(null);
   const [error, setError] = useState(null);
+  const navigate = useNavigate();
+  const goBack = () => navigate(-1); // 돌아가기
 
   // 현재 위치 가져오기
   useEffect(() => {
@@ -81,6 +84,9 @@ export default function WeatherInfo() {
             <p className="weather-temperature">🌡️ 기온: {weather.main.temp}°C</p>
             <p className="weather-condition">☁️ 상태: {weather.weather[0].description}</p>
             <p className="weather-advice">{renderMessage(weather.main.temp)}</p>
+            <button onClick={goBack} className="weather-submit-button fade-in">
+              돌아가기
+            </button>
           </>
         )}
       </div>
