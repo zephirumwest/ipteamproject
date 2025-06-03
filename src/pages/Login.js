@@ -1,6 +1,7 @@
+// src/pages/Login.js
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import './Login.css'; // CSS 파일 import
+import { useNavigate, Link } from 'react-router-dom'; // Link import 추가
+import './Login.css';
 
 export default function Login() {
   const navigate = useNavigate();
@@ -19,6 +20,11 @@ export default function Login() {
   return (
     <div className="login-page-container">
       <form onSubmit={handleSubmit} className="login-form">
+        {/* 홈으로 가기 링크 추가 */}
+        <div className="form-header-link-container">
+          <Link to="/" className="form-to-home-link">← 홈으로 돌아가기</Link>
+        </div>
+
         <h2 className="login-form-title">로그인</h2>
 
         <label className="login-form-label">이메일</label>
@@ -37,7 +43,7 @@ export default function Login() {
           name="password"
           value={form.password}
           onChange={handleChange}
-          className="login-form-input login-form-input-password" // 추가 클래스
+          className="login-form-input login-form-input-password"
           required
         />
 
