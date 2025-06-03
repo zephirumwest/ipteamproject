@@ -1,6 +1,7 @@
+// src/pages/Signup.js
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import './Signup.css'; // CSS 파일 import
+import { useNavigate, Link } from 'react-router-dom'; // Link import 추가
+import './Signup.css';
 
 export default function Signup() {
   const navigate = useNavigate();
@@ -19,6 +20,11 @@ export default function Signup() {
   return (
     <div className="signup-page-container">
       <form onSubmit={handleSubmit} className="signup-form">
+        {/* 홈으로 가기 링크 추가 */}
+        <div className="form-header-link-container">
+          <Link to="/" className="form-to-home-link">← 홈으로 돌아가기</Link>
+        </div>
+
         <h2 className="signup-form-title">회원가입</h2>
 
         <label className="signup-form-label">이름</label>
