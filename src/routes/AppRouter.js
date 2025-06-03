@@ -12,7 +12,7 @@ import Locations from '../pages/Locations';
 
 export default function AppRouter() {
   return (
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
