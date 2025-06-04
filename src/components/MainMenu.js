@@ -12,10 +12,8 @@ const menuItems = [
 export default function MainMenu() {
   return (
     <div className="main-menu-container">
-      {/* 상단 제목 - Home.js의 Header와 중복될 수 있으므로 Home.js에서만 사용하거나 여기서 제거 고려 */}
-      {/* <div className="main-menu-title-bar">
-        실버 건강 지원 플랫폼
-      </div> */}
+      {}
+      {}
 
       <div className="main-menu-grid">
         {menuItems.map((item, idx) => (
