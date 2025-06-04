@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/ipteamproject/static/css/main.91f8a609.css",
-    "main.js": "/ipteamproject/static/js/main.403013c6.js",
+    "main.css": "/ipteamproject/static/css/main.c68bdf44.css",
+    "main.js": "/ipteamproject/static/js/main.ccad4158.js",
     "static/js/453.af53b4fa.chunk.js": "/ipteamproject/static/js/453.af53b4fa.chunk.js",
     "index.html": "/ipteamproject/index.html",
-    "main.91f8a609.css.map": "/ipteamproject/static/css/main.91f8a609.css.map",
-    "main.403013c6.js.map": "/ipteamproject/static/js/main.403013c6.js.map",
+    "main.c68bdf44.css.map": "/ipteamproject/static/css/main.c68bdf44.css.map",
+    "main.ccad4158.js.map": "/ipteamproject/static/js/main.ccad4158.js.map",
     "453.af53b4fa.chunk.js.map": "/ipteamproject/static/js/453.af53b4fa.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.91f8a609.css",
-    "static/js/main.403013c6.js"
+    "static/css/main.c68bdf44.css",
+    "static/js/main.ccad4158.js"
   ]
 }
