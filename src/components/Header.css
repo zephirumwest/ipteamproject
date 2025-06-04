@@ -31,3 +31,25 @@
   color: #fefcbf; /* hover:text-yellow-200 (연한 노란색) */
   /* 또는 다른 밝은 색상: color: #e0e0e0; (밝은 회색) */
 }
+
+.header-welcome-message {
+  color: white;
+  margin-right: 1rem;
+  font-weight: 500;
+}
+
+.header-logout-button {
+  background-color: transparent;
+  border: 1px solid white;
+  color: white;
+  padding: 0.3rem 0.8rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9em; /* 링크와 비슷한 크기 */
+  transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
+}
+
+.header-logout-button:hover {
+  background-color: white;
+  color: #2563eb; /* 헤더 배경색과 유사하게 */
+}
