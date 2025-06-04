@@ -9,8 +9,6 @@ export default function Header() {
 
   const handleLogout = () => {
     logout();
-    // 필요시 홈페이지 등으로 리디렉션
-    // navigate('/'); // useNavigate 사용 시
   };
 
   return (
