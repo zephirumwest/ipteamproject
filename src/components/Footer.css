@@ -8,3 +8,26 @@
   margin-top: auto;
   border-top: 1px solid #e5e7eb; /* border-t (and default border color) */
 }
+
+/* 사이트 이름이나 기본 정보 */
+.footer-copy {
+  margin: 0.25rem 0; /* mt-1 mb-1 */
+  font-weight: 600; /* font-semibold */
+  color: #111827; /* text-gray-900 */
+}
+
+/* 저작권 표기 */
+.footer-credit {
+  margin: 0.25rem 0;
+  font-size: 0.875rem; /* text-sm */
+  color: #6b7280; /* text-gray-500 */
+}
+
+.footer-credit a {
+  color: #6b7280; /* 링크도 회색 */
+  text-decoration: none;
+}
+
+.footer-credit a:hover {
+  text-decoration: underline;
+}

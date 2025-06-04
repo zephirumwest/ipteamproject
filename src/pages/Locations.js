@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Locations.css';
 
 const HOSPITAL_API_KEY = 'dE12OR0cQCenf5ZlnjW6rL5b76z5WxfkoRiHND7B7HCPzPyNhdaCNEM64PRTi%2Fsp41YYEB6dMIStnbDpr73wVQ%3D%3D';
@@ -7,6 +8,8 @@ export default function Locations() {
   const mapRef = useRef(null);
   const [location, setLocation] = useState(null);
   const [error, setError] = useState(null);
+  const navigate = useNavigate();
+  const goBack = () => navigate(-1); // 돌아가기
 
   const loadKakaoMapScript = () => {
     return new Promise((resolve, reject) => {
@@ -54,18 +57,27 @@ export default function Locations() {
 
         const myMarker = new window.kakao.maps.Marker({ position: center });
         myMarker.setMap(map);
-        const myinfowindow = new window.kakao.maps.InfoWindow({
-            content: `<div style="padding:5px;font-size:13px;">현위치</div>`,
-        });
-        myinfowindow.open(map, myMarker);
 
         const addMarker = (lat, lon, title, tel, icon) => {
           if (!lat || !lon || isNaN(lat) || isNaN(lon)) return;
           const pos = new window.kakao.maps.LatLng(lat, lon);
-          const marker = new window.kakao.maps.Marker({ position: pos, title });
-          const infowindow = new window.kakao.maps.InfoWindow({
-            content: `<div style="padding:5px;font-size:13px;">${icon} ${title}<br>${tel}</div>`,
+
+          // 마커 이미지 설정
+          const imageSrc = process.env.PUBLIC_URL + '/images/hospital-icon.png';
+          const imageSize = new window.kakao.maps.Size(30, 30); // 크기 설정
+          const markerImage = new window.kakao.maps.MarkerImage(imageSrc, imageSize);
+
+          const marker = new window.kakao.maps.Marker({
+            position: pos,
+            title,
+            image: markerImage,
           });
+
+          const telInfo = tel ? `<br>${tel}` : '';
+          const infowindow = new window.kakao.maps.InfoWindow({
+            content: `<div style="padding:5px;font-size:13px;">${icon} ${title}${telInfo}</div>`,
+          });
+
           marker.setMap(map);
           window.kakao.maps.event.addListener(marker, 'mouseover', () => infowindow.open(map, marker));
           window.kakao.maps.event.addListener(marker, 'mouseout', () => infowindow.close());
@@ -109,6 +121,9 @@ export default function Locations() {
         ref={mapRef}
         style={{ width: '100%', height: '500px', border: '1px solid #ccc' }}
       ></div>
+      <button onClick={goBack} className="weather-submit-button fade-in">
+        돌아가기
+      </button>
     </div>
   );
 }
