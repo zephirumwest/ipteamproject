@@ -9,7 +9,7 @@ export default function Locations() {
   const [location, setLocation] = useState(null);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
-  const goBack = () => navigate(-1); // 돌아가기
+  const goBack = () => navigate('/'); // 돌아가기
 
   const loadKakaoMapScript = () => {
     return new Promise((resolve, reject) => {
